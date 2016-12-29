@@ -1,3 +1,3 @@
 here is a simple vector implementation in c,
 
-with cffi binding to python.
+with cffi bindings to python.

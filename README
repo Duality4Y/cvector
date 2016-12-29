@@ -1,3 +1,14 @@
 here is a simple vector implementation in c,
 
 with cffi bindings to python.
+
+== Building ==
+
+make sure scons is installed.
+
+the run `scons libbuild` inside cvector directory.
+
+== Usage ==
+
+look at the tests to get an indication of how to use this code.
+(tests reside in cvector.py)

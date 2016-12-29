@@ -1,9 +1,13 @@
 from cffi import FFI
+import subprocess
 import unittest
 import os
 
 basepath = os.path.dirname(os.path.abspath(__file__))
 libpath = os.path.join(basepath, "lib", "libvector.so")
+
+# if not os.path.isfile(libpath):
+#     subprocess.call('/usr/bin/scons libbuild')
 
 with open(os.path.join(basepath, "include", "vector.h")) as f:
     cdef_vector = f.readlines()

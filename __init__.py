@@ -1,1 +1,1 @@
-from cvector import cvector
+from cvector.cvector import Vector

@@ -33,19 +33,19 @@ class Vector(object):
         super(Vector, self).__setattr__('cvector', cvector)
 
     def normalize(self):
-        return Vector(lib.normalize(self.cvector))
+        return Vector(lib.vector_normalize(self.cvector))
 
     def dist(self, v):
-        return float(lib.distance(self.cvector, v.cvector))
+        return float(lib.vector_distance(self.cvector, v.cvector))
 
     def dot(self, v):
-        return float(lib.dot(self.cvector, v.cvector))
+        return float(lib.vector_dot(self.cvector, v.cvector))
 
     def get_mag(self):
-        return lib.get_magnitude(self.cvector)
+        return lib.vector_get_magnitude(self.cvector)
 
     def set_mag(self, size):
-        cvector = lib.set_magnitude(self.cvector, size)
+        cvector = lib.vector_set_magnitude(self.cvector, size)
         super(Vector, self).__setattr__('cvector', cvector)
 
     def __setattr__(self, attr, value):
@@ -56,7 +56,7 @@ class Vector(object):
         elif attr == 'z':
             self.cvector.z = value
         elif attr == 'mag':
-            self.set_mag(value)
+            self.vector_set_mag(value)
         else:
             raise AttributeError
 
@@ -77,40 +77,40 @@ class Vector(object):
 
     def __add__(self, other):
         if isinstance(other, (int, float)):
-            res = lib.sadd(self.cvector, other)
+            res = lib.vector_sadd(self.cvector, other)
             return Vector(res)
         elif isinstance(other, Vector):
-            res = lib.vadd(self.cvector, other.cvector)
+            res = lib.vector_vadd(self.cvector, other.cvector)
             return Vector(res)
         else:
             raise TypeError
 
     def __sub__(self, other):
         if isinstance(other, (int, float)):
-            res = lib.ssub(self.cvector, other)
+            res = lib.vector_ssub(self.cvector, other)
             return Vector(res)
         elif isinstance(other, Vector):
-            res = lib.vsub(self.cvector, other.cvector)
+            res = lib.vector_vsub(self.cvector, other.cvector)
             return Vector(res)
         else:
             raise TypeError
 
     def __mul__(self, other):
         if isinstance(other, (int, float)):
-            res = lib.smul(self.cvector, other)
+            res = lib.vector_smul(self.cvector, other)
             return Vector(res)
         elif isinstance(other, Vector):
-            res = lib.vmul(self.cvector, other.cvector)
+            res = lib.vector_vmul(self.cvector, other.cvector)
             return Vector(res)
         else:
             raise TypeError
 
     def __div__(self, other):
         if isinstance(other, (int, float)):
-            res = lib.sdiv(self.cvector, other)
+            res = lib.vector_sdiv(self.cvector, other)
             return Vector(res)
         elif isinstance(other, Vector):
-            res = lib.vdiv(self.cvector, other.cvector)
+            res = lib.vector_vdiv(self.cvector, other.cvector)
             return Vector(res)
         else:
             raise TypeError

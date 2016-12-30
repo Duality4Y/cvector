@@ -56,7 +56,7 @@ class Vector(object):
         elif attr == 'z':
             self.cvector.z = value
         elif attr == 'mag':
-            self.vector_set_mag(value)
+            self.set_mag(value)
         else:
             raise AttributeError
 
